@@ -1,10 +1,11 @@
-package udemy_programacao;
+package ada_programacao;
 
-public class HelloWorld {
+public class OlaMundo {
 	
 	public static void main(String[] args) {
 		
-		System.out.println("Hello World!");
+		System.out.println("Olá mundo!");
 	}
 
 }
+
