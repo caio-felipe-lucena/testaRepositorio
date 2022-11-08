@@ -1,0 +1,67 @@
+package ada_programacao;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class ADA_coding_tank_prova {
+	
+	public static void main(String[] args) {
+		
+		Scanner input = new Scanner (System.in);	
+		
+		
+		System.out.println("Informe a temperatura a ser convertida");
+		System.out.println("Digite a abreviação da temperatura de origem (F, C ou K para Fahrenheit, Celcius e Kelvin, respectivamente)");
+		System.out.println("Informe para qual temperatura você deseja fazer a conversão(F, C ou K para Fahrenheit,"
+				+ " Celcius e Kelvin, respectivamente)");
+		
+		try {
+			
+			double temperaturaOrigem = input.nextDouble();
+			
+			String celcius = "C";
+			String fahrenheit = "F";
+			String Kelvin ="K";
+			double converteTemperatura;
+			
+			input.nextLine();
+			String primeiraTemperaturaAbreviacao = input.nextLine();
+			String segundaTemperaturaAbreviacao = input.nextLine();			
+			
+			
+			if((primeiraTemperaturaAbreviacao.equalsIgnoreCase("C")) && segundaTemperaturaAbreviacao.equalsIgnoreCase("F")) {				
+				converteTemperatura = (1.8*temperaturaOrigem)+32;
+				System.out.printf("A coversão de Celcius para Fahrenheit é de %.2f%n", converteTemperatura);
+				
+			}if ((primeiraTemperaturaAbreviacao.equalsIgnoreCase("C")) && segundaTemperaturaAbreviacao.equalsIgnoreCase("K")) {
+				converteTemperatura = temperaturaOrigem + 273;
+				System.out.printf("A conversão de Celcius para Kelvin é de %.2f%n ",converteTemperatura);
+				
+			}if ((primeiraTemperaturaAbreviacao.equalsIgnoreCase("F")) && segundaTemperaturaAbreviacao.equalsIgnoreCase("C")) {				
+				converteTemperatura = (temperaturaOrigem-32)/1.8;
+				System.out.printf("A conversão de Fahrenheit para Celcius é de %.2f%n", converteTemperatura);
+				
+			}if ((primeiraTemperaturaAbreviacao.equalsIgnoreCase("F")) && segundaTemperaturaAbreviacao.equalsIgnoreCase("K")) {
+				converteTemperatura = ((temperaturaOrigem - 32)*1.8) +273.15;
+				System.out.printf("A conversão de Fahrenheit para Kelvin é de %.2f%n", converteTemperatura);
+				
+			}if ((primeiraTemperaturaAbreviacao.equalsIgnoreCase("K")) && segundaTemperaturaAbreviacao.equalsIgnoreCase("C")) {
+				converteTemperatura = temperaturaOrigem -273.15;
+				System.out.printf("A conversão de Kelvin para Celcius é de %.2f%n", converteTemperatura);
+				
+			}if ((primeiraTemperaturaAbreviacao.equalsIgnoreCase("K")) && segundaTemperaturaAbreviacao.equalsIgnoreCase("F")) {
+				converteTemperatura = ((temperaturaOrigem -273.15)*1.8)+32;
+				System.out.printf("A conversão de Kelvin para Fahrenheit é de %.2f%n", converteTemperatura);
+				
+			} if ((primeiraTemperaturaAbreviacao.isEmpty()) || segundaTemperaturaAbreviacao.isEmpty()) {
+				System.out.println("Favor informar uma temperatura");
+			}
+			
+		} catch (InputMismatchException e) {
+			System.out.println("Favor inserir informações válidas");
+		}
+		
+		input.close();
+	}
+
+}
